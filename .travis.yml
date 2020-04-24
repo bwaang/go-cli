@@ -1,7 +1,15 @@
 sudo: required
 language: go
 go:
-  - 1.14.x
+- 1.14.x
 script:
 - make build
 - make test
+deploy:
+  provider: releases
+  api_key:
+    secure: ltbz6GrDvDBanBH9pW5NSTC/1BDPny54UHa+S+YsOi7lxc9XxXy/GLS8jB4ONjEV6vf985BhwKth9kAGr1xtIwLTLLb6viavUgw/a2Fh74NJXT5GSYBr254+B7WFGJgVOSMdczxeTO1WVeXQutSp+jb8V4WUDUnsLX4PYceYTLwxP6vlrRRNRbYv9C7GLoHU7TiEbZiRjzZGVdwpFks1qbsPcMQL/kGFF4BQORHJ3njyn3RBpCFgbGQ0mQrfAcW0I0u7nqwNxY0GEr8UShomyFUVqwhZjmdMDWgYWlHCwpZ+z/35NuUhBPx+3hJ4ymIENMdaSJq+PwhKi8kmvpI9UkD/56ICp+K1uB87HGa6vtY2DuDmL/RearSyOL+i0mG2eoA4riMYLPUzRHyU1WGqc0NrSYPLDK3nvoLsZWR8ouUsTY8fcof3pAZRTu3p/wT6TZNmLbXkOMrXdfooFPd4eRpvGnNcSuHuF55LkQpefxw0GW4g4QIsr2ReilFXPJIkFlCJeUHPgR1XaBVK6AblTk2O5pHIfNV1plFClHq+/52YoFKrknaCtesSRenVmJoRV+XaWByEk271X3G9Xv4mScSVTzbFfv6j+oTrv6StYER0Wifh01tYfnwCPvIhj11M+j6xRHag2/WRuRRiDeGEmKmURzOt1txsdXuR2IrHsmE=
+  file: go-cli
+  skip_cleanup: true
+  on:
+    tags: true
